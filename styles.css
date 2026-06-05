@@ -562,9 +562,10 @@ h3 {
   margin: 0;
   color: var(--teal-900);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.5rem, 2vw, 1.9rem);
-  line-height: 1.08;
+  font-size: clamp(1.28rem, 1.45vw, 1.58rem);
+  line-height: 1.05;
   text-align: center;
+  white-space: nowrap;
 }
 
 .issue-card h4::after {
@@ -1165,6 +1166,12 @@ details p {
     flex-basis: 100%;
     min-height: auto;
     padding: 28px 22px;
+  }
+
+  .issue-card h4 {
+    font-size: clamp(1.35rem, 7vw, 1.72rem);
+    line-height: 1.08;
+    white-space: normal;
   }
 
   .whatsapp-cta {

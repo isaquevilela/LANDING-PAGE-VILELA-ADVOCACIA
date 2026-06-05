@@ -400,7 +400,8 @@ h3 {
 
 .practice-heading,
 .issue-grid,
-.practice-cta {
+.practice-cta,
+.practice-note {
   position: relative;
   max-width: 1180px;
   margin-right: auto;
@@ -606,6 +607,20 @@ h3 {
   margin-top: 28px;
 }
 
+.practice-note {
+  max-width: 860px;
+  margin-top: 16px;
+  color: rgba(11, 57, 66, 0.74);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.practice-block--labor .practice-note {
+  color: rgba(255, 255, 255, 0.74);
+}
+
 .whatsapp-cta {
   display: inline-flex;
   align-items: center;
@@ -685,6 +700,15 @@ h3 {
   border-radius: 8px;
   box-shadow: var(--shadow);
   text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover,
+.step-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.16),
+    0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
 .feature-card {

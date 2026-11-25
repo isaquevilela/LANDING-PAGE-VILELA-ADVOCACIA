@@ -1,16 +1,18 @@
-.service-page [id] {
+.service-page [id],
+#advogado {
   scroll-margin-top: 130px;
 }
 
-.service-page .site-header {
+.site-header {
   grid-template-columns: auto 1fr;
 }
 
-.service-page .nav-menu a[aria-current="page"] {
+.site-header .nav-menu a[aria-current="page"] {
   color: var(--gold);
 }
 
-.service-page :focus-visible {
+.service-page :focus-visible,
+.site-header :focus-visible {
   outline: 2px solid var(--gold-dark);
   outline-offset: 4px;
 }
@@ -390,8 +392,13 @@
 }
 
 @media (max-width: 1080px) {
-  .service-page .site-header {
+  .site-header {
     grid-template-columns: auto auto;
+  }
+
+  .site-header .nav-menu {
+    position: absolute;
+    top: 100%;
   }
 
   .service-grid {

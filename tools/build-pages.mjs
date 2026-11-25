@@ -38,7 +38,7 @@ function renderDocument({ title, description, slug, schema, body, pageId = "" })
   <link rel="stylesheet" href="service-pages.css">
 ${schema ? `  <script type="application/ld+json">${JSON.stringify(schema)}</script>` : ""}
   <script src="script.js" defer></script>
-${pageId ? '  <script src="measurement.js?v=3" defer></script>' : ""}
+${pageId ? '  <script src="measurement.js?v=4" defer></script>' : ""}
 ${pageId ? '  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>\n  <script src="service-icons.js" defer></script>\n  <script src="service-situations.js" defer></script>' : ""}
 </head>
 <body class="service-page" data-page-id="${pageId}">
@@ -68,11 +68,12 @@ ${body}
 ${pageId ? renderContact(whatsappLink(pages.find((p) => p.id === pageId)), "floating", "cta_05", true) : ""}
   <dialog class="privacy-dialog" aria-labelledby="privacy-title">
     <h2 id="privacy-title">Preferências de privacidade</h2>
-    <p>A medição opcional ajuda a entender quais anúncios geram cliques de contato. Você pode acessar o WhatsApp com qualquer escolha.</p>
+    <p>Escolha se permite medir o uso do site no Google Analytics e os cliques de contato no Google Ads. O WhatsApp funciona com qualquer escolha.</p>
     <p><a href="privacidade">Leia o aviso de privacidade</a></p>
     <form method="dialog">
-      <button class="btn" value="denied">Recusar medição</button>
-      <button class="btn btn-primary" value="granted">Permitir medição</button>
+      <label style="flex-basis: 100%"><input type="checkbox" name="analytics"> Permitir medição de uso do site no Google Analytics</label>
+      <button class="btn" value="denied">Salvar sem Google Ads</button>
+      <button class="btn btn-primary" value="granted">Salvar com Google Ads</button>
     </form>
   </dialog>
 </body>
@@ -233,7 +234,9 @@ const privacy = renderDocument({
         <p>O site oferece links para WhatsApp, telefone e e-mail. Ao abrir o WhatsApp, a plataforma externa aplica suas próprias regras de privacidade. Se você enviar uma mensagem, os dados que escolher compartilhar poderão ser usados pelo escritório para responder e avaliar seu pedido de atendimento.</p>
         <h2>Medição opcional do Google Ads</h2>
         <p>Na página inicial e nas páginas de atendimento, a tag do Google Ads é carregada após sua escolha de permitir. Ela pode usar identificadores de campanha e cookies para relacionar um anúncio a um clique no WhatsApp. O evento registra o clique, sem incluir o endereço do botão, a mensagem, a conversa ou os documentos enviados. A personalização de anúncios permanece desativada.</p>
-        <p>A escolha de privacidade é armazenada neste navegador. Você pode revisá-la pelo botão de preferências no rodapé quando a medição estiver disponível.</p>
+        <h2>Medição opcional do Google Analytics</h2>
+        <p>Com autorização específica, o Google Analytics usa cookies para medir visitas, origem do tráfego, engajamento, rolagem e cliques de contato. O evento de WhatsApp usa apenas uma categoria genérica de posição. A mensagem e os documentos enviados não fazem parte da medição.</p>
+        <p>As escolhas de privacidade são armazenadas neste navegador e podem ser revistas em “Preferências de privacidade” no rodapé.</p>
         <h2>Solicitações sobre seus dados</h2>
         <p>Para dúvidas e solicitações, escreva para <a href="mailto:${email}">${email}</a>.</p>
       </div>

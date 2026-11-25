@@ -33,6 +33,18 @@ O contêiner `GTM-MMJ5726L` fica fora desta integração. Mantenha uma única or
 
 [Consent Mode](https://developers.google.com/tag-platform/security/guides/consent) · [Conversões do Google Ads](https://support.google.com/google-ads/answer/16560108)
 
+## Google Analytics 4
+
+O destino `G-40LS8KMKGJ` (fluxo `16409352294`) compartilha a Google Tag direta. O site injeta um único carregador. O Google pode baixar módulos adicionais para cada destino. A autorização de Analytics é independente e fica desmarcada por padrão. Revogar a autorização bloqueia novos eventos, sem alterar a escolha de Google Ads.
+
+O site envia `page_view` uma vez por documento e `whatsapp_click` uma vez por clique autorizado, com `button_position` (hero, middle, footer ou floating). Sessões, usuários e engajamento são contabilizados pelo GA4. A rolagem usa a medição otimizada do fluxo, aos 90%. A atribuição usa a origem do referenciador e parâmetros de campanha admitidos pelo código. Identificadores de clique só entram no contexto do Analytics quando ambas as medições foram autorizadas.
+
+No painel do fluxo, mantenha **Rolagens** ativa e desative **Cliques de saída** e **Alterações de página com base no histórico do navegador**. Mantenha Google Signals e coleta de dados fornecidos pelo usuário desativados para o GA4. Confira a vinculação com Google Ads e a codificação automática para atribuição. Para usar a posição em relatórios, registre `button_position` como dimensão personalizada de escopo Evento. Preserve **Contato** como a única conversão primária desse clique no Google Ads.
+
+Para conferir o recebimento, conecte o site pelo Tag Assistant, autorize Analytics e abra **Administrador > Exibição de dados > DebugView**. Abra as três páginas, confira um `page_view` por carga, role até o fim e teste o WhatsApp com Google Ads recusado. Verifique `scroll` e `whatsapp_click` com a posição do botão. O relatório **Tempo real** também permite verificar a chegada dos eventos.
+
+[DebugView](https://support.google.com/analytics/answer/7201382) · [Visualizações de página](https://developers.google.com/analytics/devguides/collection/ga4/views)
+
 ## Revisão antes de publicar
 
 - O site confirma a atuação trabalhista e de consumo, OAB/MG nº 224.007, atendimento nacional online e presencial em Minas Gerais. A formação acadêmica não consta do projeto. Confirmar eventual formação antes de adicioná-la.

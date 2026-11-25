@@ -132,7 +132,7 @@
       }
     </script>
   </head>
-  <body>
+  <body data-page-id="home">
     <header class="site-header" id="inicio">
       <a class="brand" href="./" aria-label="Início | Vilela Advocacia Especializada">
         <img src="assets/logo-vilela.png" alt="Logo Vilela Advocacia Especializada" width="170" height="100" />
@@ -439,6 +439,7 @@
       <div>
         <h2>Contato</h2>
         <p><a href="privacidade">Privacidade</a></p>
+        <button class="privacy-settings" type="button" data-open-privacy hidden>Preferências de privacidade</button>
         <p>WhatsApp: <a href="https://wa.me/5531993947958?text=Ol%C3%A1%2C%20Dr.%20Isaque!%0A%0AGostaria%20de%20uma%20an%C3%A1lise%20do%20meu%20caso.%20%0A%0AVou%20explicar%20minha%20situa%C3%A7%C3%A3o%20a%20seguir." target="_blank" rel="noopener">(31) 99394-7958</a></p>
         <p>E-mail: <a href="mailto:isaque.vilelaadvocacia@gmail.com">isaque.vilelaadvocacia@gmail.com</a></p>
         <p>Atendimento online em todo o Brasil</p>
@@ -450,6 +451,16 @@
       <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.85 9.85 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2Zm5.78 14.17c-.24.68-1.38 1.3-1.94 1.38-.5.08-1.14.12-1.84-.12-.42-.14-.96-.31-1.66-.61-2.92-1.26-4.82-4.19-4.97-4.39-.14-.19-1.19-1.58-1.19-3.02s.75-2.15 1.02-2.44c.27-.29.59-.36.78-.36h.56c.18 0 .42-.07.66.5.24.58.82 2 .89 2.14.07.14.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.46.29.15.46.12.63-.07.19-.22.73-.85.92-1.14.19-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.7-.17 1.39Z"/></svg>
     </a>
 
+    <dialog class="privacy-dialog" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Preferências de privacidade</h2>
+      <p>A medição opcional ajuda a entender quais anúncios geram cliques de contato. Você pode acessar o WhatsApp com qualquer escolha.</p>
+      <p><a href="privacidade">Leia o aviso de privacidade</a></p>
+      <form method="dialog">
+        <button class="btn" value="denied">Recusar medição</button>
+        <button class="btn btn-primary" value="granted">Permitir medição</button>
+      </form>
+    </dialog>
+    <script src="measurement.js?v=2" defer></script>
     <script src="script.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script>

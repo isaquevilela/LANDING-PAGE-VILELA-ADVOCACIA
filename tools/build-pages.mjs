@@ -90,10 +90,10 @@ function whatsappLink(page) {
   return link.href;
 }
 
-function renderContact(link, position, id, floating = false) {
+function renderContact(link, position, id, floating = false, text = "Contato pelo WhatsApp") {
   const classes = floating ? "floating-whatsapp" : "whatsapp-cta";
   const label = floating ? ' aria-label="Contato pelo WhatsApp"' : "";
-  return `<a class="${classes}" href="${link}" target="_blank" rel="noopener noreferrer" data-whatsapp-cta="${id}" data-button-position="${position}"${label}>${whatsappIcon}${floating ? "" : "Contato pelo WhatsApp"}</a>`;
+  return `<a class="${classes}" href="${link}" target="_blank" rel="noopener noreferrer" data-whatsapp-cta="${id}" data-button-position="${position}"${label}>${whatsappIcon}${floating ? "" : text}</a>`;
 }
 
 const steps = [
@@ -124,7 +124,7 @@ const situationLabels = {
   "servico-nao-prestado": ["Serviços não prestados", "clipboard-x"],
 };
 
-function renderSituations(page) {
+function renderSituations(page, link) {
   const title = page.id === "service_01"
     ? "Situações trabalhistas frequentes"
     : "Situações frequentes nas relações de consumo";
@@ -156,6 +156,7 @@ function renderSituations(page) {
           }).join("\n          ")}
         </div>
       </div>
+      <div class="center-cta">${renderContact(link, "middle", "cta_06", false, "FALE COM O ADVOGADO AGORA")}</div>
     </section>`;
 }
 
@@ -188,7 +189,7 @@ function renderService(page) {
       </div>
       ${cta("middle", "cta_02")}
     </section>
-${renderSituations(page)}
+${renderSituations(page, link)}
     <section class="section section-light" id="como-funciona">
       ${heading("Como funciona o atendimento")}
       <ol class="service-grid service-steps">${steps.map(([glyph, title, copy]) => `<li class="step-card icon-card">${icon(glyph)}<h3>${title}</h3><p>${copy}</p></li>`).join("")}</ol>

@@ -38,7 +38,7 @@ function renderDocument({ title, description, slug, schema, body, pageId = "" })
   <link rel="stylesheet" href="service-pages.css">
 ${schema ? `  <script type="application/ld+json">${JSON.stringify(schema)}</script>` : ""}
   <script src="script.js" defer></script>
-${pageId ? '  <script src="measurement.js?v=2" defer></script>' : ""}
+${pageId ? '  <script src="measurement.js?v=3" defer></script>' : ""}
 ${pageId ? '  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>\n  <script src="service-icons.js" defer></script>\n  <script src="service-situations.js" defer></script>' : ""}
 </head>
 <body class="service-page" data-page-id="${pageId}">
@@ -82,7 +82,10 @@ ${pageId ? renderContact(whatsappLink(pages.find((p) => p.id === pageId)), "floa
 
 function whatsappLink(page) {
   const link = new URL(whatsappBase);
-  link.search = "?text=" + encodeURIComponent(`Olá, Dr. Isaque! Acessei sua página de ${page.area} e gostaria de informações sobre atendimento jurídico.`);
+  const issue = page.slug === "direito-trabalhista"
+    ? "uma situação trabalhista que estou enfrentando"
+    : "um problema que estou enfrentando como consumidor";
+  link.search = "?text=" + encodeURIComponent(`Olá, Dr. Isaque! Acessei sua página de ${page.area} e gostaria de atendimento jurídico referente a ${issue}.`);
   return link.href;
 }
 

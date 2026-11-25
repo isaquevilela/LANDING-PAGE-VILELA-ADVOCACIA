@@ -166,7 +166,7 @@ function renderService(page) {
     "@context": "https://schema.org", "@type": "Service",
     name: page.heading, serviceType: page.area, description: page.description,
     url: domain + "/" + page.slug,
-    provider: { "@type": "LegalService", name: brand, url: domain + "/", telephone: "+5531993947958", email },
+    provider: { "@type": "LegalService", "@id": domain + "/#escritorio", name: brand, url: domain + "/", telephone: "+5531993947958", email },
     areaServed: [{ "@type": "Country", name: "Brasil" }, { "@type": "State", name: "Minas Gerais" }],
   };
   const body = `    <section class="service-hero section-dark">
@@ -222,8 +222,9 @@ for (const page of pages) {
   await writeFile(new URL(page.slug + ".html", root), renderService(page));
 }
 
+const privacySlug = "privacidade";
 const privacy = renderDocument({
-  title: "Privacidade | Vilela Advocacia", slug: "privacidade",
+  title: "Privacidade | Vilela Advocacia", slug: privacySlug,
   description: "Informações sobre dados, canais de atendimento e preferências de medição no site Vilela Advocacia.",
   body: `    <section class="section section-light service-privacy">
       <div class="service-reading">
@@ -242,4 +243,14 @@ const privacy = renderDocument({
       </div>
     </section>`,
 });
-await writeFile(new URL("privacidade.html", root), privacy);
+await writeFile(new URL(privacySlug + ".html", root), privacy);
+
+const publicRoutes = ["", ...pages.map(({ slug }) => slug), privacySlug];
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...publicRoutes.map((slug) => `  <url><loc>${new URL("/" + slug, domain).href}</loc></url>`),
+  "</urlset>",
+  "",
+].join("\n");
+await writeFile(new URL("sitemap.xml", root), sitemap);

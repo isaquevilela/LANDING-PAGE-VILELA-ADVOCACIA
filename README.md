@@ -19,6 +19,8 @@ Use Node.js para iniciar a prévia com `node tools/preview.mjs`. Acesse `http://
 
 Edite os textos em `tools/service-content.mjs` e a estrutura compartilhada em `tools/build-pages.mjs`. Rode `node tools/build-pages.mjs` e inclua os HTMLs gerados junto com os arquivos-fonte. O Cloudflare continua sem comando de build. Após aprovação jurídica e autorização de publicação, envie primeiro a uma branch de prévia e confira as rotas diretas. A publicação ocorre ao integrar à branch de produção configurada no Cloudflare.
 
+O mesmo comando regenera `sitemap.xml` com a home, as rotas públicas de `service-content.mjs` e o aviso de privacidade. Inclua o XML gerado no commit. O arquivo `404.html` faz o Cloudflare Pages devolver HTTP 404 para caminhos desconhecidos.
+
 [Roteamento do Cloudflare Pages](https://developers.cloudflare.com/pages/configuration/serving-pages/)
 
 ## WhatsApp e medição de campanhas

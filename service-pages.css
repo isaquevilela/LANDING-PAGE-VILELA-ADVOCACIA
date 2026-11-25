@@ -1,0 +1,444 @@
+.service-page [id] {
+  scroll-margin-top: 130px;
+}
+
+.service-page .site-header {
+  grid-template-columns: auto 1fr;
+}
+
+.service-page .nav-menu a[aria-current="page"] {
+  color: var(--gold);
+}
+
+.service-page :focus-visible {
+  outline: 2px solid var(--gold-dark);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 75;
+  left: 1rem;
+  top: 1rem;
+  padding: .7rem 1rem;
+  background: var(--white);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.service-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--teal-950);
+}
+
+.service-hero__image {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 55%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  z-index: -2;
+}
+
+.service-hero::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #082d34 37%, rgba(8, 45, 52, .94) 48%, rgba(8, 45, 52, .22) 81%);
+  z-index: -1;
+  content: "";
+}
+
+.service-hero__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 60px 32px 68px;
+}
+
+.service-hero__copy {
+  max-width: 630px;
+}
+
+.service-hero h1 {
+  font-size: 3.6rem;
+  text-wrap: balance;
+}
+
+.service-hero__copy > p:not(.eyebrow) {
+  max-width: 55ch;
+  color: #edf4f4;
+}
+
+.service-coverage {
+  padding-left: 1.2rem;
+  margin: 1rem 0 1.4rem;
+  font-size: .95rem;
+}
+
+.service-coverage li::marker {
+  color: var(--gold);
+}
+
+.service-page .whatsapp-cta {
+  min-width: 0;
+  width: fit-content;
+  max-width: 100%;
+  color: #fff;
+  background: #08733e;
+  text-transform: none;
+  animation: none;
+}
+
+.service-page .whatsapp-cta:hover {
+  background: #065f33;
+}
+
+.service-page .floating-whatsapp {
+  animation: none;
+}
+
+.service-page .center-cta {
+  align-items: center;
+}
+
+.service-page .site-footer a {
+  overflow-wrap: anywhere;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.service-topic {
+  min-height: 0;
+  border-radius: 8px;
+}
+
+.service-topic .card-icon {
+  align-self: center;
+  color: var(--teal-900);
+}
+
+.service-topic h3 {
+  margin-top: 1rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.service-topic p {
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.service-situations {
+  background: var(--teal-900);
+}
+
+.service-situations .section-heading {
+  color: var(--paper);
+}
+
+.service-situations .section-heading h2 {
+  color: var(--white);
+}
+
+.service-situations .section-heading .eyebrow {
+  color: var(--gold);
+}
+
+.service-situations :focus-visible {
+  outline-color: var(--gold);
+}
+
+.service-reading {
+  max-width: 840px;
+  margin-inline: auto;
+}
+
+.service-situations .eyebrow {
+  color: var(--teal-800);
+}
+
+.situations-layout {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.situations-layout:has(.situations-tabs:not([hidden])) {
+  display: grid;
+  grid-template-columns: minmax(0, 35fr) minmax(0, 65fr);
+  gap: 24px;
+}
+
+.situations-tabs,
+.situations-panels {
+  min-width: 0;
+}
+
+.situations-tabs,
+.situations-item {
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.situations-tabs {
+  padding: 6px;
+  align-self: start;
+}
+
+.situations-option {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--teal-900);
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+}
+
+.situations-layout [hidden] {
+  display: none;
+}
+
+.situations-option svg {
+  width: 20px;
+  height: 20px;
+}
+
+.situations-option svg:last-child {
+  width: 16px;
+  height: 16px;
+}
+
+.situations-option:hover {
+  background: var(--paper);
+}
+
+.situations-option[aria-selected="true"],
+.situations-option[aria-expanded="true"] {
+  background: var(--teal-900);
+  color: var(--white);
+}
+
+.situations-option[aria-selected="true"] svg,
+.situations-option[aria-expanded="true"] svg {
+  color: var(--gold);
+}
+
+.situations-toggle[aria-expanded="true"] svg:last-child {
+  transform: rotate(180deg);
+}
+
+.situations-item {
+  margin-bottom: 8px;
+}
+
+.situations-item:has(.situations-panel[hidden]):has(.situations-toggle[hidden]) {
+  display: none;
+}
+
+.situations-panel {
+  padding: 36px 42px;
+  border-radius: inherit;
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(8, 45, 52, .16);
+}
+
+.situations-panel .card-icon {
+  background: var(--paper);
+  color: var(--teal-900);
+}
+
+.situations-panel h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.1rem;
+  text-wrap: balance;
+}
+
+.situations-panel h3::after {
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin-top: 16px;
+  background: var(--gold);
+  content: "";
+}
+
+.situations-panel > p:last-child {
+  max-width: 62ch;
+  margin-bottom: 0;
+}
+
+.privacy-dialog a,
+.service-privacy a,
+.practice-detail a {
+  text-decoration: underline;
+  text-underline-offset: .22em;
+}
+
+@media (max-width: 760px) {
+  .situations-panel {
+    padding: 20px;
+    box-shadow: none;
+  }
+
+  .situations-panel .card-icon,
+  .situations-panel .eyebrow {
+    display: none;
+  }
+
+  .situations-panel h3 {
+    font-size: 1.65rem;
+  }
+}
+
+.service-steps {
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.service-page .lawyer__photo img {
+  max-height: 500px;
+  object-position: center 27%;
+}
+
+.service-page h2 {
+  font-size: 2.25rem;
+}
+
+.service-closing {
+  text-align: center;
+}
+
+.service-closing h2,
+.service-closing p {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.service-privacy h1 {
+  color: var(--teal-900);
+  font-size: 2.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-privacy h2 {
+  font-size: 1.5rem;
+  margin-top: 1.4rem;
+}
+
+.privacy-settings {
+  border: 0;
+  padding: .5rem 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.privacy-dialog {
+  width: min(34rem, calc(100% - 2rem));
+  padding: 1.5rem;
+  border: 1px solid #c7d5d6;
+  border-radius: 8px;
+  color: var(--teal-900);
+}
+
+.privacy-dialog::backdrop {
+  background: rgba(8, 45, 52, .55);
+}
+
+.privacy-dialog form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.privacy-dialog button:not(.btn-primary) {
+  color: var(--teal-900);
+  border-color: currentColor;
+  background: var(--white);
+}
+
+.practice-detail {
+  position: relative;
+  text-align: center;
+  font-weight: 700;
+  color: var(--teal-900);
+}
+
+@media (max-width: 1080px) {
+  .service-page .site-header {
+    grid-template-columns: auto auto;
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .service-hero__inner {
+    padding: 38px 20px 42px;
+  }
+
+  .service-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .service-hero__image {
+    width: 100%;
+    object-position: center 22%;
+  }
+
+  .service-hero::before {
+    background: linear-gradient(90deg, rgba(8, 45, 52, .92), rgba(8, 45, 52, .76));
+  }
+
+  .service-page h2 {
+    font-size: 1.8rem;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-page .site-footer {
+    padding-bottom: 90px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.service-page) {
+    scroll-behavior: auto;
+  }
+
+  .service-page .issue-card,
+  .service-page .step-card,
+  .service-page .whatsapp-cta,
+  .service-page .floating-whatsapp {
+    transition: none;
+  }
+}
